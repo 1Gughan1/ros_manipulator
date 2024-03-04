@@ -1,0 +1,4 @@
+Invoking command in '/home/ros2_foxy/arduinobot_ws/build/manipulator_description': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/ros2_foxy/arduinobot_ws/build/manipulator_description -- -j2 -l2
+Invoked command in '/home/ros2_foxy/arduinobot_ws/build/manipulator_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/ros2_foxy/arduinobot_ws/build/manipulator_description -- -j2 -l2
+Invoking command in '/home/ros2_foxy/arduinobot_ws/build/manipulator_description': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/ros2_foxy/arduinobot_ws/build/manipulator_description
+Invoked command in '/home/ros2_foxy/arduinobot_ws/build/manipulator_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/ros2_foxy/arduinobot_ws/build/manipulator_description

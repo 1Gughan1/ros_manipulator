@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot_arm">
+
+  <!-- Define base link -->
+  <link name="base_link">
+
+    <!-- Define visual representation -->
+    <visual>
+      <geometry>
+        <cylinder radius="0.5" length="0.5"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <material name="blue">
+        <color rgba="0.1 0.1 0.8 1"/>
+      </material>
+    </visual>
+
+    <!-- Define collision representation -->
+    <collision>
+      <geometry>
+        <cylinder radius="0.25" length="0.5"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+       <material name="blue">
+        <color rgba="0.1 0.1 0.8 1"/>
+      </material>
+    </collision>
+
+  </link>
+
+</robot>

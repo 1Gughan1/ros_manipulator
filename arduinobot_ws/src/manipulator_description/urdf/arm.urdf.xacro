@@ -1,31 +1,70 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot_arm">
 
+    <xacro:property name="PI" value="3.14159"/>
+    <xacro:property name="effort" value="30.0"/>
+    <xacro:property name="velocity" value="10.0"/>
+  <!-- Define world link -->
+  <link name="world"/>
+
   <!-- Define base link -->
   <link name="base_link">
-
-    <!-- Define visual representation -->
     <visual>
       <geometry>
-        <cylinder radius="0.5" length="0.5"/>
+        <cylinder radius="0.5" length="0.25"/>
       </geometry>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <material name="blue">
         <color rgba="0.1 0.1 0.8 1"/>
       </material>
     </visual>
+  </link>
 
-    <!-- Define collision representation -->
-    <collision>
+  <!-- Define a joint connecting base_link to the world -->
+  <joint name="virtual_joint" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+
+  <link name="link_1">
+    <visual>
       <geometry>
-        <cylinder radius="0.25" length="0.5"/>
+        <cylinder radius="0.15" length="1"/>
       </geometry>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-       <material name="blue">
+      <origin xyz="0 0 0.5" rpy="0 0 0"/>
+      <material name="blue">
         <color rgba="0.1 0.1 0.8 1"/>
       </material>
-    </collision>
-
+    </visual>
   </link>
+
+  <joint name="arm_joint" type="revolute">
+    <parent link="base_link"/>
+    <child link="link_1"/>
+    <axis xyz="0 0 1"/>
+    <origin rpy="0 0 0" xyz="0 0 0.125"/>
+    <limit lower="-${PI}" upper="${PI}" effort="${effort}" velocity="${velocity}"/>
+  </joint>
+
+  <link name="link_2">
+    <visual>
+      <geometry>
+        <cylinder radius="0.15" length="1"/>
+      </geometry>
+      <origin xyz="0 0 0.5" rpy="0 0 0"/>
+      <material name="red">
+        <color rgba="0.8 0.1 0.1 1"/>
+    </material>    
+    </visual>
+  </link>
+
+  <joint name="arm_joint2" type="revolute">
+    <parent link="link_1"/>
+    <child link="link_2"/>
+    <axis xyz="0 1 0"/>
+    <origin rpy="0 0 0" xyz="0 0.3 0.8"/>
+    <limit lower="-${PI}" upper="${PI}" effort="${effort}" velocity="${velocity}"/>
+  </joint>
 
 </robot>
